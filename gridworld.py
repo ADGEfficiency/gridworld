@@ -61,11 +61,9 @@ class GridWorld():
 
         for state in states:
             for action in self.actions:
-
                 next_co_ord = self.add_co_ords(state.co_ord, action.delta)
                 next_state = self.find_state_by_co_ord(states, next_co_ord)
                 env_probs = self.make_probabilities(state, next_state, states)
-
                 state_actions[state][action] = env_probs
 
         return state_actions

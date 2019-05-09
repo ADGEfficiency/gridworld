@@ -5,16 +5,15 @@ from gridworld import GridWorld
 
 
 class ValueIteration():
-
     def __init__(
             self,
             grid
     ):
         self.grid = grid
-
         self.step = 0
 
     def forward(self, state_values):
+        """ single iteration """
         updated_state_values = [0] * len(self.grid.states)
 
         for state in self.grid.states:
@@ -26,6 +25,7 @@ class ValueIteration():
         return updated_state_values, done
 
     def solve(self):
+        """ iterate until convergence """
         state_values = [0] * len(grid.states)
         done = False
         while not done:
@@ -59,11 +59,6 @@ class ValueIteration():
 
 
 if __name__ == '__main__':
-
-    height = 4
-    width = 4
-
-    grid = GridWorld(height, width, (1, 1))
-
+    grid = GridWorld(4, 4, (1, 1))
     vi = ValueIteration(grid)
     optimal = vi.solve()

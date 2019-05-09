@@ -32,7 +32,6 @@ def check_error(step, state_values, updated_state_values):
 
 
 class DynamicProgramming():
-
     def __init__(
             self,
             policy,
@@ -40,15 +39,16 @@ class DynamicProgramming():
     ):
         self.policy = policy
         self.grid = grid
-
         self.step = 0
 
     def forward(self, state_values):
+        """ single iteration """
         updated_state_values = self.update_state_values(state_values)
         done, self.step = check_error(self.step, state_values, updated_state_values)
         return updated_state_values, done
 
     def solve(self):
+        """ iterate until convergence """
         state_values = [0] * len(self.grid.states)
         done = False
         while not done:
