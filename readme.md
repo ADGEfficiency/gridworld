@@ -2,20 +2,20 @@
 
 Visualizing dynamic programming and value iteration on a gridworld
 
-![](dynamic-programming.gif)
+![](dynamic_programming.gif)
 
 ## Usage
 
 Calculate the state values for a random policy using dynamic programming, visualize using pygame
 
 ```bash
-$ python main.py dynamic-programming
+$ python pygame_grid.py --solver dynamic-programming
 ```
 
 Find the optimal state values for the grid using value iteration
 
 ```bash
-$ python main.py value-iteration
+$ python pygame_grid.py --solver value-iteration
 ```
 
 Calculate the state values for a random policy (no pygame visualization)

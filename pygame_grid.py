@@ -1,3 +1,4 @@
+import argparse
 import pygame
 
 from dynamic_programming import DynamicProgramming
@@ -85,9 +86,9 @@ def check_pygame():
 
 
 if __name__ == "__main__":
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('--solver', default='dynamic-programming', nargs='?')
-    # args = parser.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--solver', default='dynamic-programming', nargs='?')
+    args = parser.parse_args()
 
     pygame.init()
     pygame.display.set_caption('grid')
@@ -108,14 +109,19 @@ if __name__ == "__main__":
         action: 0.25 for action in grid.actions
     }
 
-    dp = DynamicProgramming(random_policy, grid)
-    vi = ValueIteration(grid)
+    solvers = {
+        'dynamic-programming': DynamicProgramming(random_policy, grid),
+        'value-iteration': ValueIteration(grid)
+    }
+
+    solver = solvers[args.solver]
 
     running = True
     done = False
+
     # while not done:
     while running:
         running = check_pygame()
         pygame.display.update()
-        state_values, done = dp.forward(state_values)
+        state_values, done = solver.forward(state_values)
         update_tiles(state_values, tiles)
