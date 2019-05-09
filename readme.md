@@ -1,6 +1,6 @@
 ## Gridworld
 
-Visualizing dynamic programming and value iteration on a gridworld using `pygame`.  The grid has a reward of -1 for all states except the terminal state
+Visualizing dynamic programming and value iteration on a gridworld using `pygame`.  The grid has a reward of -1 for all transitions until reaching the terminal state.
 
 ![](dynamic_programming.gif)
 
@@ -23,6 +23,10 @@ Calculate the state values for a random policy (no `pygame` visualization):
 ```python
 #  make a 4x4 grid with the goal state at (1, 1)
 grid = GridWorld(4, 4, (1, 1))
+
+vi = ValueIteration(random_policy, grid)
+
+state_values = vi.solve()
 
 vi = ValueIteration(random_policy, grid)
 
