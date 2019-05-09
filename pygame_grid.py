@@ -85,16 +85,16 @@ def check_pygame():
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--solver', default='dynamic-programming', nargs='?')
-    args = parser.parse_args()
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument('--solver', default='dynamic-programming', nargs='?')
+    # args = parser.parse_args()
 
     pygame.init()
     pygame.display.set_caption('grid')
 
     height = 8
     width = 8
-    goal_co_ord = (1, 1)
+    goal_co_ord = (3, 2)
     tile_size = (200, 200)
 
     surface, tiles = make_pygame(height, width, goal_co_ord, tile_size)

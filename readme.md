@@ -2,6 +2,8 @@
 
 Visualizing dynamic programming and value iteration on a gridworld
 
+![](dynamic-programming.gif)
+
 ## Usage
 
 Calculate the state values for a random policy using dynamic programming, visualize using pygame
