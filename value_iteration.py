@@ -63,7 +63,7 @@ if __name__ == '__main__':
     height = 4
     width = 4
 
-    grid = GridWorld(height, width)
+    grid = GridWorld(height, width, (1, 1))
 
     vi = ValueIteration(grid)
     optimal = vi.solve()
